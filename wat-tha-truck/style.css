@@ -1,0 +1,107 @@
+/* Palette, taken from their baskets, cheese and checkered paper */
+:root{
+  --ground:#FFFFFF;
+  --ink:#171212;
+  --muted:#4F4545;
+  --brand:#D4231A;   /* red basket / ketchup */
+  --mustard:#FFC21A; /* cheese / mustard */
+  --green:#1F7A3A;   /* green checkered liner */
+  --r:6px;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--ground);color:var(--ink);font:400 17px/1.5 "Mulish",system-ui,sans-serif;text-wrap:pretty}
+img{display:block;max-width:100%;height:auto}
+h1,h2,h3{font-family:"Bowlby One","Arial Black",Impact,sans-serif;font-weight:400;line-height:1.05;margin:0;text-wrap:balance;letter-spacing:0}
+::selection{background:var(--mustard);color:var(--ink)}
+a{text-underline-offset:.2em}
+:focus-visible{outline:3px solid var(--ink);outline-offset:3px}
+.cater :focus-visible,.foot :focus-visible{outline-color:var(--mustard)}
+.skip{position:absolute;left:-999px;top:0;background:var(--mustard);color:var(--ink);padding:10px 14px;z-index:10}
+.skip:focus{left:8px;top:8px}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+.preview-bar{background:var(--ink);color:#fff;font-size:14px;line-height:1.35;padding:7px 16px;font-weight:700}
+
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:0 24px;background:var(--mustard);color:var(--ink);font-weight:800;font-size:19px;text-decoration:none;border-radius:var(--r);border:2px solid var(--ink)}
+.btn:hover{background:#fff}
+.btn:active{background:#E8AA00}
+
+/* hero */
+.hero{background:var(--brand);color:#fff;padding:22px 16px 28px;display:grid;gap:20px}
+.hero h1{font-size:clamp(44px,13.5vw,96px);letter-spacing:-.01em}
+.lede{font-size:clamp(19px,5vw,24px);font-weight:700;line-height:1.3;margin:12px 0 18px;max-width:30ch}
+.hero p{margin:0}
+.hero p:has(.btn){margin-bottom:10px}
+.hero-sub{font-size:16px;font-weight:700}
+.hero-photo{width:100%;aspect-ratio:16/10;object-fit:cover;object-position:50% 55%;border-radius:var(--r);border:3px solid #fff}
+.checks{height:28px;background:
+  conic-gradient(var(--green) 25%,#fff 0 50%,var(--green) 0 75%,#fff 0) 0 0/28px 28px}
+
+/* find */
+.find{background:var(--mustard);padding:44px 16px 48px;display:grid;gap:36px}
+.find h2{font-size:clamp(34px,9vw,52px);margin-bottom:18px}
+.addr{font-size:clamp(24px,6.5vw,32px);font-weight:800;line-height:1.2;margin:0 0 12px}
+.find p{margin:0 0 14px}
+.note{max-width:46ch}
+.link{color:var(--ink);font-weight:800}
+.find h3{font-size:22px;margin-bottom:12px}
+.ways{list-style:none;margin:0;padding:0;font-weight:800;font-size:20px}
+.ways li{padding:9px 0;border-top:2px solid var(--ink)}
+.ways li:last-child{border-bottom:2px solid var(--ink)}
+
+/* food */
+.food{padding:48px 16px 8px;display:grid;gap:12px}
+.food figure{margin:0}
+.food img{width:100%;height:100%;object-fit:cover;border-radius:var(--r)}
+.f1 img{aspect-ratio:4/3;object-position:50% 50%}
+.f2 img{aspect-ratio:4/3}
+.f3 img{aspect-ratio:4/3;object-position:50% 40%}
+.f3{display:none}
+.food-line{font-family:"Bowlby One","Arial Black",sans-serif;font-size:clamp(24px,6.5vw,38px);line-height:1.1;margin:20px 0 0;max-width:20ch;text-wrap:balance}
+
+/* catering */
+.cater{background:var(--ink);color:#fff;margin-top:48px;padding:48px 16px;display:grid;gap:28px}
+.cater h2{font-size:clamp(34px,9vw,52px);margin-bottom:16px}
+.cater p{margin:0 0 16px;max-width:42ch;font-size:18px}
+.mail{font-size:17px}
+.link-w{color:#fff;font-weight:800}
+.logo{width:min(100%,360px);background:#fff;border-radius:var(--r);padding:8px;justify-self:start}
+
+/* reviews */
+.say{padding:56px 16px 56px}
+.say h2{font-size:clamp(28px,7vw,40px);margin-bottom:24px}
+blockquote{margin:0}
+blockquote p{margin:0}
+blockquote footer{font-weight:800;color:var(--muted);margin-top:10px;font-size:16px}
+.big p{font-size:clamp(26px,6.8vw,44px);font-weight:800;line-height:1.15;max-width:22ch;text-wrap:balance}
+.big{margin-bottom:36px}
+.small{max-width:60ch;border-top:3px solid var(--brand);padding-top:18px}
+.small p{font-size:18px}
+.rate{margin:36px 0 0;font-weight:800}
+
+.foot{background:var(--brand);color:#fff;padding:36px 16px 44px}
+.foot p{margin:0 0 14px}
+.foot a{color:#fff;font-weight:700}
+.foot-name{font-family:"Bowlby One","Arial Black",sans-serif;font-size:28px}
+.quiet{font-size:15px;opacity:.95;margin-top:22px!important}
+
+@media (min-width:820px){
+  body{font-size:18px}
+  .preview-bar{padding:8px 40px;font-size:15px}
+  .hero{grid-template-columns:5fr 6fr;align-items:center;gap:48px;padding:56px max(40px,calc(50% - 640px)) 64px}
+  .hero-photo{aspect-ratio:4/3;object-position:50% 50%}
+  .find{grid-template-columns:7fr 4fr;gap:80px;padding:72px max(40px,calc(50% - 640px)) 76px}
+  .food{grid-template-columns:7fr 5fr;grid-template-rows:auto auto;padding:72px max(40px,calc(50% - 640px)) 8px;gap:16px}
+  .f1{grid-row:1/3}
+  .f1 img{aspect-ratio:auto;height:100%;min-height:440px}
+  .f2 img{aspect-ratio:5/3}
+  .f3{display:block}
+  .f3 img{aspect-ratio:5/3}
+  .food-line{grid-column:1/-1;max-width:none;margin-top:28px}
+  .cater{grid-template-columns:6fr 4fr;align-items:center;gap:72px;padding:76px max(40px,calc(50% - 640px));margin-top:72px}
+  .logo{justify-self:end;width:100%;max-width:400px}
+  .say{padding:96px max(40px,calc(50% - 640px))}
+  .foot{padding:44px max(40px,calc(50% - 640px)) 52px}
+}
+@media (prefers-reduced-motion:no-preference){.btn{transition:background .15s}}
