@@ -200,5 +200,17 @@
 </footer>
 
 <script src="script.js" defer></script>
+<!-- visit counter -->
+<script>
+(function(){try{
+var s=(location.pathname.match(/site-previews\/([a-z0-9-]+)/)||[])[1];if(!s)return;
+try{if(/[?&]me(=|&|$)/.test(location.search))localStorage.setItem('nocount','1');if(localStorage.getItem('nocount'))return}catch(e){}
+var c=window.matchMedia&&matchMedia('(pointer:coarse)').matches;
+var d=c?(Math.min(screen.width,screen.height)<600?'phone':'tablet'):'desktop';
+var r='';try{r=document.referrer?new URL(document.referrer).hostname:''}catch(e){}
+var a=!!navigator.webdriver||/bot|crawl|spider|headless|lighthouse|preview/i.test(navigator.userAgent);
+navigator.sendBeacon('https://xclakdqywukfccfggzyn.supabase.co/functions/v1/preview-hit',JSON.stringify({s:s,d:d,r:r,a:a}));
+}catch(e){}})();
+</script>
 </body>
 </html>
