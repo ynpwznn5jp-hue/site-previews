@@ -1,0 +1,148 @@
+/* The Handyman, Canyon Lake. Palette from their own photos: deck stain, cedar, limestone. */
+:root {
+  --ground: #EFEBE2;   /* limestone page background */
+  --ink: #231D19;      /* main text, warm near-black from the logo */
+  --muted: #5B4F47;    /* secondary text */
+  --brand: #7B3B2A;    /* deck-stain brown: buttons, links, brand band */
+  --cedar: #24382E;    /* dark cedar green band */
+  --line: #CDC5B6;     /* rules */
+  --paper: #F7F4ED;    /* text on dark bands */
+  --radius: 4px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: "Asap", system-ui, -apple-system, "Segoe UI", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+img { display: block; max-width: 100%; height: auto; }
+a { color: var(--brand); text-underline-offset: 0.18em; text-decoration-thickness: 1.5px; }
+a:hover { color: var(--ink); }
+::selection { background: var(--brand); color: var(--paper); }
+:focus-visible { outline: 3px solid var(--brand); outline-offset: 3px; }
+.on-dark :focus-visible, .preview :focus-visible, .site-footer :focus-visible { outline-color: var(--paper); }
+
+h1, h2, h3 {
+  font-family: "Alfa Slab One", Georgia, "Times New Roman", serif;
+  font-weight: 400;
+  line-height: 1.12;
+  letter-spacing: 0;
+  text-wrap: balance;
+  margin: 0;
+}
+h1 { font-size: clamp(1.9rem, 6.4vw, 3.1rem); }
+h2 { font-size: clamp(1.5rem, 4.4vw, 2.1rem); }
+h3 { font-size: 1.25rem; }
+p { margin: 0 0 1em; max-width: 65ch; }
+
+.skip { position: absolute; left: -999px; top: 0; background: var(--paper); color: var(--ink); padding: 0.6rem 1rem; z-index: 10; }
+.skip:focus { left: 0; }
+
+.wrap { width: min(100% - 2rem, 70rem); margin-inline: auto; }
+
+/* Preview bar */
+.preview { background: var(--ink); color: var(--paper); font-size: 0.9375rem; line-height: 1.35; padding: 0.5rem 0; }
+.preview p { margin: 0; max-width: none; }
+
+/* Header */
+.site-header { border-bottom: 1px solid var(--line); }
+.header-inner { display: flex; justify-content: space-between; align-items: center; gap: 0.75rem; padding: 0.7rem 0; }
+.brand { text-decoration: none; color: var(--ink); line-height: 1.1; }
+.brand-name { display: block; font-family: "Alfa Slab One", Georgia, serif; font-size: 1.2rem; }
+.brand-town { display: block; font-size: 0.9375rem; color: var(--muted); margin-top: 0.15rem; }
+.head-phone { font-weight: 700; color: var(--brand); text-decoration: none; white-space: nowrap; display: inline-flex; align-items: center; min-height: 44px; font-size: 1.0625rem; }
+.head-phone:hover { text-decoration: underline; }
+
+/* Button: the one style */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 52px; padding: 0.7rem 1.5rem;
+  background: var(--brand); color: var(--paper);
+  font-weight: 700; font-size: 1.125rem; text-decoration: none;
+  border-radius: var(--radius); border: 0; cursor: pointer;
+  font-variant-numeric: tabular-nums;
+}
+.btn:hover { background: var(--ink); color: var(--paper); }
+.btn:active { transform: translateY(1px); }
+
+/* Hero */
+.hero { padding: 1.6rem 0 2.5rem; }
+.hero-grid { display: grid; gap: 1.5rem; }
+.hero-copy .lede { font-size: 1.1875rem; margin: 1rem 0 1.25rem; }
+.hero-photo img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; object-position: 50% 62%; border-radius: var(--radius); }
+.hero-photo figcaption, .shot figcaption { font-size: 0.9375rem; color: var(--muted); margin-top: 0.5rem; }
+.hero-photo { margin: 0; }
+.fine { font-size: 0.9375rem; color: var(--muted); margin: 0.9rem 0 0; }
+
+/* Deck work: the cedar band */
+.decks { background: var(--cedar); color: var(--paper); padding: 3rem 0 3.25rem; }
+.decks h2 { color: var(--paper); }
+.decks .intro { margin: 0.9rem 0 1.75rem; font-size: 1.125rem; }
+.deck-grid { display: grid; gap: 1.5rem; }
+.shot { margin: 0; }
+.shot img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: var(--radius); }
+.decks .shot figcaption { color: #D8D3C6; }
+.decks .shot:nth-child(1) img { object-position: 50% 70%; }
+.decks .shot:nth-child(2) img { object-position: 50% 75%; }
+.decks .shot:nth-child(3) img { object-position: 50% 60%; }
+
+/* Painting and fixtures */
+.more { padding: 3.5rem 0 3rem; }
+.more-grid { display: grid; gap: 1.75rem; }
+.more h2 { margin-bottom: 0.9rem; }
+.more .shot img { aspect-ratio: 4 / 5; }
+.more .shot.garage img { object-position: 50% 45%; }
+.more .shot.lantern img { object-position: 50% 40%; }
+
+/* Review band */
+.review { background: var(--brand); color: var(--paper); padding: 2.75rem 0; }
+.review h2 { font-size: 1.25rem; margin-bottom: 1rem; }
+.review blockquote { margin: 0; max-width: 24em; }
+.review blockquote p { font-family: "Alfa Slab One", Georgia, serif; font-size: clamp(1.45rem, 4.6vw, 2rem); line-height: 1.25; max-width: none; margin: 0 0 1rem; }
+.review cite { font-style: normal; font-size: 1.0625rem; }
+
+/* Contact */
+.contact { padding: 3.25rem 0 3.5rem; }
+.contact-grid { display: grid; gap: 2rem; align-items: start; }
+.big-phone { display: block; font-family: "Alfa Slab One", Georgia, serif; font-size: clamp(1.9rem, 8vw, 3rem); color: var(--brand); text-decoration: none; margin: 0.75rem 0 1rem; white-space: nowrap; line-height: 1.1; font-variant-numeric: lining-nums; }
+.big-phone:hover { color: var(--ink); text-decoration: underline; }
+.details { margin: 1.5rem 0 0; display: grid; gap: 0.35rem; }
+.details dt { font-weight: 700; }
+.details dd { margin: 0 0 0.75rem; }
+.logo { width: 200px; height: auto; border: 1px solid var(--line); border-radius: var(--radius); }
+
+/* Footer */
+.site-footer { background: var(--ink); color: var(--paper); padding: 1.75rem 0; font-size: 1rem; }
+.site-footer p { margin: 0 0 0.35rem; max-width: none; }
+.site-footer a { color: var(--paper); }
+.site-footer .quiet { color: #C9C2B6; font-size: 0.9375rem; margin-top: 0.75rem; }
+
+@media (min-width: 760px) {
+  body { font-size: 1.125rem; }
+  .preview { font-size: 1rem; }
+  .brand-name { font-size: 1.5rem; }
+  .hero { padding: 3rem 0 4rem; }
+  .hero-grid { grid-template-columns: 7fr 5fr; gap: 3rem; align-items: center; }
+  .hero-photo img { aspect-ratio: 4 / 5; object-position: 50% 50%; }
+  .deck-grid { grid-template-columns: 1fr 1fr 1fr; gap: 1.75rem; }
+  .decks .shot img { aspect-ratio: 4 / 5; }
+  .more-grid { grid-template-columns: 4fr 4fr 3.2fr; gap: 2.25rem; align-items: start; }
+  .more .shot { margin-top: 0; }
+  .more .shot.lantern { margin-top: 3rem; }
+  .review { padding: 4rem 0; }
+  .review .wrap { display: grid; grid-template-columns: 3fr 9fr; gap: 2rem; }
+  .review h2 { margin: 0.5rem 0 0; }
+  .contact-grid { grid-template-columns: 7fr 3fr; gap: 3rem; }
+  .logo { width: 100%; max-width: 260px; justify-self: end; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .btn:active { transform: none; }
+}

@@ -1,0 +1,109 @@
+/* Palette (from their logo and photos)
+   --ground  #E9E6DF  pale dust / concrete drive
+   --ink     #16130F  black pipe, logo bar
+   --muted   #5A5148  warm dark gray text
+   --brand   #F59A0B  logo orange (large areas, button)
+   --rust    #8A3B1C  red oxide pipe; links and rules on light ground
+   --alt     #D8D3C8  second ground
+*/
+:root{--ground:#E9E6DF;--ink:#16130F;--muted:#5A5148;--brand:#F59A0B;--rust:#8A3B1C;--alt:#D8D3C8;--r:4px}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ground);color:var(--ink);font-family:Rubik,system-ui,sans-serif;font-size:17px;line-height:1.55;text-wrap:pretty;padding-bottom:72px}
+h1,h2,h3{font-family:Teko,"Arial Narrow",sans-serif;font-weight:600;line-height:1;margin:0;text-wrap:balance;letter-spacing:.01em}
+img{display:block;max-width:100%;height:auto}
+a{color:var(--rust);text-underline-offset:3px;text-decoration-thickness:1.5px}
+a:focus-visible,button:focus-visible{outline:3px solid var(--rust);outline-offset:3px}
+::selection{background:var(--brand);color:var(--ink)}
+.skip{position:absolute;left:-999px;top:0;background:var(--ink);color:#fff;padding:8px 12px;z-index:10}
+.skip:focus{left:0}
+.wrap{max-width:1160px;margin:0 auto;padding:0 20px}
+
+.preview{background:var(--ink);color:#EDE8DD;font-size:14px;line-height:1.35;padding:8px 0}
+.preview .wrap{display:block}
+
+.top{background:var(--ink);border-top:1px solid #3a342c}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-top:10px;padding-bottom:12px}
+.brandname{font-family:Teko,sans-serif;font-weight:600;font-size:clamp(23px,6.4vw,30px);line-height:1;color:#fff;text-decoration:none;letter-spacing:.02em}
+.brandname{white-space:nowrap}
+.brandname span{color:var(--brand)}
+.top nav{display:none}
+.top .tel{color:var(--brand);font-weight:600;text-decoration:none;white-space:nowrap}
+
+.rails{height:14px;border-top:3px solid var(--rust);border-bottom:3px solid var(--rust);position:relative}
+.rails::after{content:"";position:absolute;left:0;right:0;top:50%;border-top:3px solid var(--rust);transform:translateY(-50%)}
+
+.hero{padding:28px 0 40px}
+.hero h1{font-size:clamp(46px,12vw,92px)}
+.hero .lede{font-size:19px;max-width:34em;margin:16px 0 22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 26px;background:var(--brand);color:var(--ink);font-weight:600;font-size:19px;text-decoration:none;border-radius:var(--r);border:2px solid var(--ink)}
+.btn:hover{background:var(--ink);color:var(--brand)}
+.btn:active{transform:translateY(1px)}
+.hero .small{font-size:15px;color:var(--muted);margin:12px 0 0}
+.hero figure{margin:28px 0 0}
+.hero figure img{width:100%;aspect-ratio:3/4;object-fit:cover;object-position:50% 58%;border-radius:var(--r)}
+figcaption{font-size:14px;color:var(--muted);margin-top:8px}
+
+section{padding:56px 0}
+h2{font-size:clamp(38px,7vw,56px);margin-bottom:20px}
+.services{background:var(--ink);color:#EDE8DD}
+.services h2{color:var(--brand)}
+.services dl{margin:0;display:grid;gap:0}
+.services .svc{border-top:1px solid #4a4238;padding:14px 0 18px}
+.services dt{font-family:Teko,sans-serif;font-weight:500;font-size:30px;line-height:1.1;color:#fff}
+.services dd{margin:4px 0 0;color:#D8D0C2;max-width:46ch}
+
+.work .grid{display:grid;gap:20px}
+.work img{width:100%;object-fit:cover;border-radius:var(--r)}
+.work .a img{aspect-ratio:4/3;object-position:50% 50%}
+.work .b img{aspect-ratio:4/3;object-position:50% 40%}
+.work .c img,.work .d img,.work .e img{aspect-ratio:4/5}
+.work .c img{object-position:50% 55%}
+.work .d img{object-position:50% 50%}
+.work .e img{object-position:50% 60%}
+
+.review{background:var(--brand);color:var(--ink)}
+.review blockquote{margin:0}
+.review p.q{font-family:Teko,sans-serif;font-weight:600;font-size:clamp(40px,9vw,84px);line-height:1;margin:0;text-wrap:balance}
+.review cite{display:block;font-style:normal;font-weight:500;margin-top:16px}
+.review .note{margin:6px 0 0;font-size:15px}
+
+.contact{background:var(--alt)}
+.contact .cols{display:grid;gap:28px}
+.contact .bigtel{font-family:Teko,sans-serif;font-weight:600;font-size:clamp(52px,13vw,96px);line-height:1;color:var(--ink);text-decoration:none;display:inline-block}
+.contact .bigtel:hover{color:var(--rust)}
+.contact p{margin:0 0 12px;max-width:44ch}
+.contact ul{list-style:none;padding:0;margin:0}
+.contact li{margin-bottom:6px}
+
+footer{background:var(--ink);color:#CFC7B8;padding:28px 0 32px;font-size:15px}
+footer p{margin:0 0 6px}
+footer a{color:var(--brand)}
+footer .quiet{color:#9a9183;margin-top:14px}
+
+.callbar{position:fixed;left:0;right:0;bottom:0;background:var(--ink);padding:8px 16px calc(8px + env(safe-area-inset-bottom));z-index:5;border-top:2px solid var(--brand)}
+.callbar a{display:flex;align-items:center;justify-content:center;min-height:48px;background:var(--brand);color:var(--ink);font-weight:600;font-size:19px;text-decoration:none;border-radius:var(--r)}
+
+@media (min-width:760px){
+  body{font-size:18px;padding-bottom:0}
+  .callbar{display:none}
+  .top nav{display:flex;gap:26px}
+  .top nav a{color:#EDE8DD;text-decoration:none;font-size:16px;min-height:44px;display:inline-flex;align-items:center}
+  .top nav a:hover{color:var(--brand)}
+  .top .wrap{padding-top:12px;padding-bottom:12px}
+  .hero{padding:48px 0 64px}
+  .hero .wrap{display:grid;grid-template-columns:7fr 5fr;gap:48px;align-items:center}
+  .hero figure{margin:0}
+  .hero figure img{aspect-ratio:3/4}
+  section{padding:80px 0}
+  .services .wrap{display:grid;grid-template-columns:4fr 8fr;gap:48px}
+  .services dl{grid-template-columns:1fr 1fr;column-gap:48px}
+  .work .grid{grid-template-columns:repeat(12,1fr);gap:24px;align-items:start}
+  .work .a{grid-column:1/10}.work .c{grid-column:10/13;grid-row:1/3}
+  .work .b{grid-column:1/4}.work .d{grid-column:4/7}.work .e{grid-column:7/10}
+  .work .a img{aspect-ratio:16/10}
+  .work .b img,.work .d img,.work .e img{aspect-ratio:4/5}
+  .work .c img{aspect-ratio:3/5}
+  .contact .cols{grid-template-columns:7fr 5fr;align-items:end}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.btn{transition:none}}
