@@ -1,0 +1,193 @@
+/* Palette, taken from the TFC logo (charcoal and orange) plus galvanized steel */
+:root {
+  --ground: #f3f3f1;   /* page background, clean off-white */
+  --ink: #232323;      /* main text, logo charcoal */
+  --muted: #55595c;    /* secondary text, steel-tinted */
+  --brand: #262626;    /* header of the page: hero, footer, preview bar */
+  --action: #f28a0a;   /* logo orange: call button, town band */
+  --steel: #d5d9db;    /* galvanized gray: rules, alt ground */
+  --focus: #a85500;    /* focus ring on light grounds */
+  --r: 4px;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--ground);
+  color: var(--ink);
+  font-family: "Work Sans", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1.0625rem;
+  line-height: 1.55;
+}
+img { display: block; max-width: 100%; height: auto; }
+h1, h2, dt, .brand-name, .town-list, .phone-big, .foot-name {
+  font-family: Anton, "Arial Narrow", Impact, sans-serif;
+  font-weight: 400;
+}
+h1, h2 { text-wrap: balance; margin: 0; line-height: 1.08; }
+p { margin: 0 0 1em; text-wrap: pretty; }
+a { color: inherit; text-underline-offset: 3px; text-decoration-thickness: 2px; }
+::selection { background: var(--action); color: var(--brand); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 3px; }
+.hero :focus-visible, .site-footer :focus-visible, .preview-bar :focus-visible { outline-color: var(--action); }
+.wrap { width: min(1160px, 100% - 32px); margin-inline: auto; }
+
+.skip { position: absolute; left: -999px; top: 0; background: var(--action); color: var(--brand); padding: 8px 12px; z-index: 10; }
+.skip:focus { left: 8px; top: 8px; }
+
+/* preview bar */
+.preview-bar {
+  margin: 0;
+  background: var(--steel);
+  color: var(--ink);
+  font-size: 0.9375rem;
+  line-height: 1.35;
+  padding: 7px 16px;
+  text-align: left;
+}
+
+/* header */
+.site-header { background: #fff; border-bottom: 1px solid var(--steel); }
+.header-row { display: flex; align-items: center; gap: 16px; padding-block: 8px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; margin-right: auto; }
+.mark { position: relative; display: block; width: 58px; height: 50px; overflow: hidden; flex: none; }
+.mark img { position: absolute; width: 138px; max-width: none; left: -38px; top: -37px; }
+.brand-name { white-space: nowrap; font-size: 1.2rem; letter-spacing: 0.01em; line-height: 1; }
+.nav { display: none; gap: 24px; }
+.nav a { text-decoration: none; padding: 10px 2px; font-weight: 600; }
+.nav a:hover { text-decoration: underline; text-decoration-color: var(--action); }
+.header-phone {
+  font-weight: 600; text-decoration: none; padding: 10px 0 10px 8px;
+  white-space: nowrap; font-variant-numeric: tabular-nums;
+}
+.header-phone:hover { text-decoration: underline; text-decoration-color: var(--action); }
+
+/* buttons: one primary style, one text link */
+.btn {
+  display: inline-block; min-height: 48px; padding: 12px 24px;
+  background: var(--action); color: var(--brand);
+  font: 600 1.125rem/1.3 "Work Sans", Arial, sans-serif;
+  text-decoration: none; border: 0; border-radius: var(--r); cursor: pointer;
+  text-align: center;
+}
+.btn:hover { background: #ffa22e; }
+.btn:active { background: #d97a05; }
+.text-link { font-weight: 600; }
+
+/* hero */
+.hero { background: var(--brand); color: #fff; display: grid; }
+.hero-text { padding: 28px 16px 32px; }
+.hero h1 { font-size: clamp(2.5rem, 9.5vw, 4rem); }
+.hero-lede { font-size: 1.1875rem; max-width: 36ch; margin: 16px 0 12px; }
+.hero-fact { color: #d5d9db; margin-bottom: 20px; }
+.hero-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 24px; }
+.hero .text-link { color: #fff; padding: 12px 0; }
+.hero-photo { height: 320px; }
+.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 62%; }
+
+/* work */
+.work { padding: 56px 0 24px; }
+.work h2, .fences h2, .towns h2, .contact h2, .about h2 { font-size: clamp(2rem, 5vw, 2.75rem); }
+.work h2 { margin-bottom: 20px; }
+.work-grid { display: grid; gap: 20px; }
+.work figure { margin: 0; }
+.work img { width: 100%; object-fit: cover; border-radius: var(--r); }
+.w-main img { aspect-ratio: 4 / 5; object-position: 50% 60%; }
+.w-a img { aspect-ratio: 16 / 10; object-position: 50% 62%; }
+.w-b img { aspect-ratio: 16 / 10; object-position: 50% 55%; }
+figcaption { color: var(--muted); font-size: 1rem; margin-top: 8px; max-width: 48ch; }
+
+/* fences list */
+.fences { padding: 56px 0 64px; }
+.fences-grid { display: grid; gap: 24px; }
+.fence-list { margin: 0; }
+.fence-list > div { padding: 18px 0; border-top: 2px solid var(--ink); }
+.fence-list > div:last-child { border-bottom: 2px solid var(--ink); }
+.fence-list dt { font-size: 1.75rem; line-height: 1.1; margin-bottom: 6px; }
+.fence-list dd { margin: 0; max-width: 60ch; }
+
+/* about */
+.about { background: var(--steel); display: grid; }
+.about-photo { height: 380px; }
+.about-photo img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 55%; }
+.about-text { padding: 36px 16px 44px; }
+.about h2 { margin-bottom: 20px; }
+.about .big { font-size: 1.4375rem; line-height: 1.35; font-weight: 600; max-width: 30ch; }
+.about p { max-width: 60ch; }
+.about .small { color: var(--muted); font-size: 1rem; margin: 20px 0 0; }
+
+/* towns: the memorable band */
+.towns { background: var(--action); color: var(--brand); padding: 52px 0 60px; }
+.town-list {
+  list-style: none; margin: 20px 0 0; padding: 0;
+  display: flex; flex-wrap: wrap; gap: 4px 28px;
+  font-size: clamp(2.25rem, 8.5vw, 5rem); line-height: 1.12;
+}
+
+/* contact */
+.contact { padding: 56px 0 72px; }
+.contact-grid { display: grid; gap: 32px; }
+.contact-info p { margin-bottom: 0.6em; }
+.contact-info h2 { margin-bottom: 14px; }
+.phone-big { font-size: clamp(2.25rem, 8vw, 3rem); text-decoration: none; line-height: 1.1; display: inline-block; padding: 4px 0; }
+.phone-big:hover { text-decoration: underline; text-decoration-color: var(--action); }
+.quote-form { background: #fff; border: 1px solid var(--steel); border-radius: var(--r); padding: 20px; }
+.field { margin-bottom: 14px; }
+label { display: block; font-weight: 600; margin-bottom: 4px; }
+input, textarea {
+  width: 100%; font: inherit; font-size: 1rem; color: var(--ink);
+  background: var(--ground); border: 1.5px solid #8a9094; border-radius: var(--r);
+  padding: 11px 12px; min-height: 48px; caret-color: var(--action); accent-color: var(--action);
+}
+textarea { resize: vertical; }
+.form-msg { margin: 16px 0 0; padding: 12px 14px; background: var(--steel); border-radius: var(--r); font-weight: 600; }
+
+/* footer */
+.site-footer { background: var(--brand); color: #e4e6e7; padding: 36px 0 40px; }
+.site-footer p { margin-bottom: 0.3em; }
+.foot-name { font-size: 1.5rem; color: #fff; margin-bottom: 0.3em !important; }
+.footer-row { display: grid; gap: 24px; }
+.foot-small { color: #b5babd; font-size: 1rem; }
+.site-footer a { text-underline-offset: 3px; }
+
+/* wider screens */
+@media (min-width: 760px) {
+  body { font-size: 1.125rem; }
+  .nav { display: flex; }
+  .brand { margin-right: 0; }
+  .header-row { gap: 32px; }
+  .nav { margin-right: auto; margin-left: 8px; }
+  .brand-name { font-size: 1.5rem; }
+
+  .hero { grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); min-height: 560px; }
+  .hero-text { padding: 72px 32px 72px max(16px, calc((100vw - 1160px) / 2)); align-self: center; }
+  .hero-photo { height: auto; }
+  .hero-photo img { object-position: 40% 50%; }
+
+  .work { padding-top: 88px; }
+  .work-grid { grid-template-columns: 5fr 7fr; gap: 24px 32px; align-items: start; }
+  .w-main { grid-row: 1 / span 2; align-self: stretch; display: flex; flex-direction: column; }
+  .w-main img { aspect-ratio: auto; flex: 1 1 0; height: 0; min-height: 360px; }
+  .fences { padding: 96px 0 104px; }
+  .fences-grid { grid-template-columns: 4fr 8fr; gap: 48px; }
+  .fences h2 { position: sticky; top: 24px; align-self: start; }
+  .fence-list dt { font-size: 2rem; }
+  .fence-list > div { display: grid; grid-template-columns: 1fr; }
+
+  .about { grid-template-columns: 5fr 7fr; }
+  .about-photo { height: auto; min-height: 520px; }
+  .about-text { padding: 72px max(32px, calc((100vw - 1160px) / 2)) 72px 56px; align-self: center; }
+  .about .big { font-size: 1.75rem; }
+
+  .towns { padding: 88px 0 96px; }
+  .contact { padding: 96px 0 112px; }
+  .contact-grid { grid-template-columns: 5fr 6fr; gap: 64px; align-items: start; }
+  .quote-form { padding: 28px; }
+  .footer-row { grid-template-columns: 1fr auto; align-items: end; }
+  .foot-small { text-align: right; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}
